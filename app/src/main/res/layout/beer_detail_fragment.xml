@@ -10,13 +10,15 @@
     </data>
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#FFFFFF"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="8dp"
+            android:backgroundTint="#ffff33">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/beer_id"
@@ -25,7 +27,8 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
-                android:elevation="5dp"
+                android:layout_marginTop="8dp"
+                app:cardElevation="12dp"
                 app:cardCornerRadius="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +41,8 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/beer_image"
                         android:layout_width="100dp"
-                        android:layout_height="125dp"
+                        android:layout_height="100dp"
+                        android:layout_marginStart="6dp"
                         android:adjustViewBounds="true"
                         tools:src="@drawable/ic_photo" />
 
@@ -47,7 +51,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginTop="18dp"
                         android:layout_marginEnd="12dp"
                         android:layout_toEndOf="@id/beer_image"
                         android:textSize="18sp" />
@@ -87,6 +91,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="18dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/beer_id">
@@ -97,6 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
                     android:layout_marginEnd="6dp"
+                    android:paddingBottom="4dp"
                     android:textSize="18sp" />
 
             </androidx.cardview.widget.CardView>
