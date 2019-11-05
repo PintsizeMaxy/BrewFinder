@@ -56,7 +56,7 @@ class BreweryFragment : Fragment() {
                 binding.title.isVisible = query?.isEmpty() ?: true
                 searchItem.clearFocus()
                 searchItem.setQuery(query, false)
-                viewModel.searchBreweries(query.toString())
+                query?.let { viewModel.searchBreweries(it) }
                 return true
             }
 
