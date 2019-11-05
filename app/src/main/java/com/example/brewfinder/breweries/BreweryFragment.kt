@@ -3,6 +3,7 @@ package com.example.brewfinder.breweries
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -51,6 +52,8 @@ class BreweryFragment : Fragment() {
         val searchItem = menu.findItem(R.id.search).actionView as SearchView
         searchItem.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
+                binding.listRecycler.isVisible = query?.isNotEmpty() ?: false
+                binding.title.isVisible = query?.isEmpty() ?: true
                 searchItem.clearFocus()
                 searchItem.setQuery(query, false)
                 viewModel.searchBreweries(query.toString())
