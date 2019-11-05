@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import coil.api.load
@@ -64,9 +65,9 @@ class BreweryDetailFragment : Fragment() {
                         adapter = fastAdapter
                         itemAdapter.add(it.beerList.items.map { BeerItemView(it.beer) })
                     }
-//                    fastAdapter.onClickListener = { _, _, item, _ ->
-//                        navigateToBeerDetail(item.model.bid)
-//                    }
+                    fastAdapter.onClickListener = { _, _, item, _ ->
+                        navigateToBeerDetail(item.model.bid)
+                    }
                 }
             }
         })
@@ -86,9 +87,9 @@ class BreweryDetailFragment : Fragment() {
         }
     }
 
-//    private fun navigateToBeerDetail(bid: Int) : Boolean {
-//        val actions = BreweryDetailFragmentDirections.toBeer(bid)
-//        findNavController().navigate(actions)
-//        return false
-//    }
+    private fun navigateToBeerDetail(bid: Int) : Boolean {
+        val actions = BreweryDetailFragmentDirections.toBeer(bid)
+        findNavController().navigate(actions)
+        return false
+    }
 }

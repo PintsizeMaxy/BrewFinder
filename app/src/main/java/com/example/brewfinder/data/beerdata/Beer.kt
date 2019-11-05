@@ -15,7 +15,7 @@ data class Beer (
     @SerializedName("beer_abv")
     val beerAbv: Double,
     @SerializedName("beer_ibu")
-    val beerIbu: Double,
+    val beerIbu: Int,
     @SerializedName("beer_description")
     val description: String,
     @SerializedName("rating_score")

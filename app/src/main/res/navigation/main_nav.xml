@@ -21,5 +21,18 @@
         tools:layout="@layout/brewery_details_fragment">
     <argument android:name="brewery_details"
         app:argType="integer" />
+        <action
+            android:id="@+id/to_beer"
+            app:destination="@id/beerFragment"
+            app:popUpTo="@+id/breweryDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/beerFragment"
+        android:name="com.example.brewfinder.beer.BeerFragment"
+        android:label="BeerFragment"
+        tools:layout="@layout/beer_detail_fragment">
+        <argument
+            android:name="brewery_id"
+            app:argType="integer" />
     </fragment>
 </navigation>

@@ -57,9 +57,7 @@ class BreweryFragment : Fragment() {
                 return true
             }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                return false
-            }
+            override fun onQueryTextChange(newText: String?) = false
         })
     }
 
