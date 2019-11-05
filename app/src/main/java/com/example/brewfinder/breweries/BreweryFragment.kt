@@ -1,4 +1,5 @@
 package com.example.brewfinder.breweries
+
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.SearchView
@@ -37,12 +38,12 @@ class BreweryFragment : Fragment() {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
                 adapter = fastAdapter
-                itemAdapter.add(state.response.brewery.items.map {BreweryItem(it.brewery)})
+                itemAdapter.add(state.response.brewery.items.map { BreweryItem(it.brewery) })
             }
         })
-//        fastAdapter.onClickListener = { _, _, item, _ ->
-//            navigateToDetails(item)
-//        }
+        fastAdapter.onClickListener = { _, _, item, _ ->
+            navigateToDetails(item.model.breweryId)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -62,10 +63,10 @@ class BreweryFragment : Fragment() {
         })
     }
 
-//    private fun navigateToDetails(item: BreweryItem): Boolean {
-//        val action =
-//            BreweryFragmentDirections.actionBreweryFragmentToBreweryDetailFragment2(item.breweryId)
-//        findNavController().navigate(action)
-//        return false
-//    }
+    private fun navigateToDetails(item: Int): Boolean {
+        val action =
+            BreweryFragmentDirections.actionBreweryFragmentToBreweryDetailFragment2(item)
+        findNavController().navigate(action)
+        return false
+    }
 }

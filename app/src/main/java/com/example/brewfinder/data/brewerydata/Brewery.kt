@@ -4,8 +4,8 @@ import com.example.brewfinder.data.beerdata.BeerItems
 import com.google.gson.annotations.SerializedName
 
 data class Brewery (
-    @SerializedName("bid")
-    val bid: Int,
+    @SerializedName("brewery_id")
+    val breweryId: Int,
     @SerializedName("brewery_name")
     val breweryName: String,
     @SerializedName("brewery_label")
