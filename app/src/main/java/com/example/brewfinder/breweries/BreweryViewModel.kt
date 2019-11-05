@@ -28,9 +28,7 @@ class BreweryViewModel : ViewModel() {
                         BuildConfig.API_SECRET
                     )
                 }
-                viewState.postValue(
-                    apiResult.await()
-                )
+                viewState.postValue(apiResult.await())
             }catch (t: Throwable){
                 Timber.e(t)
             }

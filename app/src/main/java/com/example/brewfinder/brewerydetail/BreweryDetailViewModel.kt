@@ -16,9 +16,7 @@ class BreweryDetailViewModel(brewery: Int) : ViewModel() {
     val viewState = MutableLiveData<UntappdBreweryData>()
     var job: Job? = null
 
-    init {
-        fetchBreweryDetails(brewery)
-    }
+    init { fetchBreweryDetails(brewery) }
 
     private fun fetchBreweryDetails(id: Int) {
         job?.cancel()
@@ -31,9 +29,7 @@ class BreweryDetailViewModel(brewery: Int) : ViewModel() {
                         BuildConfig.API_ID,
                         BuildConfig.API_SECRET)
                 }
-                viewState.postValue(
-                    apiResult.await()
-                )
+                viewState.postValue(apiResult.await())
             } catch (t: Throwable) {
                 Timber.e(t)
             }

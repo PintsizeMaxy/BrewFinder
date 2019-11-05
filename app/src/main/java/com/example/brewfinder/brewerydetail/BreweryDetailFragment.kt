@@ -57,8 +57,9 @@ class BreweryDetailFragment : Fragment() {
                         it.location.breweryState
                     )
 
-                    if (it.breweryDescription.isEmpty()) descriptionBrewery.visibility = View.GONE
-                    else description.text = it.breweryDescription
+                    descriptionBrewery.isVisible = it.breweryDescription.isNotEmpty().also {_ ->
+                        description.text = it.breweryDescription
+                    }
                     binding.beerRecycler.apply {
                         layoutManager = LinearLayoutManager(context)
                         setHasFixedSize(true)

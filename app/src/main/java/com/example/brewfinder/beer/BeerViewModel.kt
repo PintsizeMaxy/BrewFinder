@@ -16,9 +16,7 @@ class BeerViewModel(bid: Int) : ViewModel() {
     val viewScope = MutableLiveData<Beer>()
     private var job: Job? = null
 
-    init {
-        findBeerDetails(bid)
-    }
+    init { findBeerDetails(bid) }
 
     private fun findBeerDetails(id: Int) {
         job?.cancel()
@@ -28,9 +26,7 @@ class BeerViewModel(bid: Int) : ViewModel() {
                 val apiResult = viewModelScope.async {
                     UntappdApi.service.getBeer(id, BuildConfig.API_ID, BuildConfig.API_SECRET)
                 }
-                viewScope.postValue(
-                    apiResult.await().response.beer
-                )
+                viewScope.postValue(apiResult.await().response.beer)
             } catch (t: Throwable) {
                 Timber.e(t)
             }
