@@ -63,6 +63,18 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     tools:text="3.789"
                     />
+                <androidx.appcompat.widget.AppCompatRatingBar
+                    android:id="@+id/rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:numStars="5"
+                    android:rating="3.75"
+                    style="?android:attr/ratingBarStyleSmall"
+                    app:layout_constraintStart_toEndOf="@id/beer_rating"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

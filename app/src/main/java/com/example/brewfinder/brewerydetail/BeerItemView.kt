@@ -15,21 +15,25 @@ class BeerItemView(private val beer: Beer) : GenericBeerItemView(beer) {
 
     override fun bindView(holder: ViewHolder, payloads: MutableList<Any>) {
         super.bindView(holder, payloads)
-        with(beer){
-            holder.itemView.beer_label.load(beerLabel){
+        with(holder.itemView) {
+            beer_label.load(beer.beerLabel) {
                 placeholder(R.drawable.ic_photo)
             }
-            holder.itemView.beer_name.text = beerName
-            holder.itemView.beer_style.text = beerStyle
-            holder.itemView.beer_rating.text = String.format("%.2f", ratingScore)
+            beer_name.text = beer.beerName
+            beer_style.text = beer.beerStyle
+            beer_rating.text = String.format("%.2f", beer.ratingScore)
+            rating.rating = beer.ratingScore.toFloat()
         }
     }
 
     override fun unbindView(holder: ViewHolder) {
         super.unbindView(holder)
-        holder.itemView.beer_label.clear()
-        holder.itemView.beer_name.text = null
-        holder.itemView.beer_style.text = null
-        holder.itemView.beer_rating.text = null
+        with(holder.itemView) {
+            beer_label.clear()
+            beer_name.text = null
+            beer_style.text = null
+            beer_rating.text = null
+            rating.rating = 0F
+        }
     }
 }
