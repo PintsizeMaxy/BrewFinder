@@ -19,8 +19,9 @@
         android:name="com.example.brewfinder.brewerydetail.BreweryDetailFragment"
         android:label="BreweryDetailFragment"
         tools:layout="@layout/brewery_details_fragment">
-    <argument android:name="brewery_details"
-        app:argType="integer" />
+        <argument
+            android:name="brewery_details"
+            app:argType="integer" />
         <action
             android:id="@+id/to_beer"
             app:destination="@id/beerFragment"
@@ -35,4 +36,7 @@
             android:name="brewery_id"
             app:argType="integer" />
     </fragment>
+    <action
+        android:id="@+id/return_home"
+        app:destination="@id/breweryFragment" />
 </navigation>

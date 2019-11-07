@@ -18,7 +18,7 @@
             android:background="#FFFFFF"
             android:orientation="vertical"
             android:paddingBottom="8dp"
-            android:backgroundTint="#ffff33">
+            android:backgroundTint="#FFC000">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/beer_id"

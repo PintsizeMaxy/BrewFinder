@@ -70,4 +70,10 @@ class BreweryFragment : Fragment() {
         findNavController().navigate(action)
         return false
     }
+
+    override fun onResume() {
+        super.onResume()
+        binding.title.visibility = View.GONE
+        binding.listRecycler.visibility = View.VISIBLE
+    }
 }
