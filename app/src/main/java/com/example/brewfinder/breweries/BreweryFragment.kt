@@ -1,5 +1,6 @@
 package com.example.brewfinder.breweries
 
+import android.location.Location
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.SearchView
@@ -9,15 +10,20 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.brewfinder.MainActivity
 import com.example.brewfinder.R
 import com.example.brewfinder.databinding.BreweryRecyclerBinding
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
+import timber.log.Timber
 
 class BreweryFragment : Fragment() {
 
     private lateinit var binding: BreweryRecyclerBinding
     private val viewModel: BreweryViewModel by viewModels()
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,6 +37,7 @@ class BreweryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        findLocation()
         val itemAdapter = ItemAdapter<BreweryItem>()
         val fastAdapter = FastAdapter.with(itemAdapter)
         viewModel.viewState.observe(this, Observer { state ->
@@ -53,7 +60,6 @@ class BreweryFragment : Fragment() {
         searchItem.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 binding.listRecycler.isVisible = query?.isNotEmpty() ?: false
-                binding.title.isVisible = query?.isEmpty() ?: true
                 searchItem.clearFocus()
                 searchItem.setQuery(query, false)
                 query?.let { viewModel.searchBreweries(it) }
@@ -62,6 +68,15 @@ class BreweryFragment : Fragment() {
 
             override fun onQueryTextChange(newText: String?) = false
         })
+    }
+
+    private fun findLocation() {
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(activity as MainActivity)
+        fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
+            location?.let {
+                binding.title.text = "${it.longitude} longitude, ${it.latitude} latitude"
+            }
+        }
     }
 
     private fun navigateToDetails(item: Int): Boolean {
@@ -73,7 +88,6 @@ class BreweryFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        binding.title.visibility = View.GONE
         binding.listRecycler.visibility = View.VISIBLE
     }
 }
