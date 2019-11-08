@@ -21,8 +21,8 @@ class BeerItemView(private val beer: Beer) : GenericBeerItemView(beer) {
             }
             beer_name.text = beer.beerName
             beer_style.text = beer.beerStyle
-            beer_rating.text = String.format("%.2f", beer.ratingScore)
-            rating.rating = beer.ratingScore.toFloat()
+            beer_rating.text = String.format("%.1f", beer.ratingScore)
+            rating.rating = beer.ratingScore
         }
     }
 

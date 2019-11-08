@@ -24,7 +24,7 @@ class BreweryDetailViewModel(brewery: Int) : ViewModel() {
         job = viewModelScope.launch {
             try {
                 val apiResult = viewModelScope.async {
-                    UntappdApi.service.getBrewery(
+                    UntappdApi.retrofit.getBrewery(
                         id,
                         BuildConfig.API_ID,
                         BuildConfig.API_SECRET)

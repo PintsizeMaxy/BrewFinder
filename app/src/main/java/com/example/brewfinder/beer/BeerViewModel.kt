@@ -24,7 +24,7 @@ class BeerViewModel(bid: Int) : ViewModel() {
         job = viewModelScope.launch {
             try {
                 val apiResult = viewModelScope.async {
-                    UntappdApi.service.getBeer(id, BuildConfig.API_ID, BuildConfig.API_SECRET)
+                    UntappdApi.retrofit.getBeer(id, BuildConfig.API_ID, BuildConfig.API_SECRET)
                 }
                 viewScope.postValue(apiResult.await().response.beer)
             } catch (t: Throwable) {

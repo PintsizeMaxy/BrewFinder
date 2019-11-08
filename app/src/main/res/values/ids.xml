@@ -2,4 +2,5 @@
 <resources>
     <item name="brewery_item" type="id" />
     <item name="beer_item" type="id" />
+    <item name="pub_item" type="id" />
 </resources>

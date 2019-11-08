@@ -1,6 +1,5 @@
 package com.example.brewfinder.breweries
 
-import android.location.Location
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.SearchView
@@ -8,23 +7,23 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.brewfinder.MainActivity
 import com.example.brewfinder.R
 import com.example.brewfinder.databinding.BreweryRecyclerBinding
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
+import com.example.brewfinder.pub.PubItemView
+import com.example.brewfinder.pub.PubViewModel
+import com.example.brewfinder.pub.PubViewModelFactory
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
-import timber.log.Timber
 
 class BreweryFragment : Fragment() {
 
     private lateinit var binding: BreweryRecyclerBinding
     private val viewModel: BreweryViewModel by viewModels()
-    private lateinit var fusedLocationClient: FusedLocationProviderClient
-
+    private lateinit var pubViewModel: PubViewModel
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -46,7 +45,7 @@ class BreweryFragment : Fragment() {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
                 adapter = fastAdapter
-                itemAdapter.add(state.response.brewery.items.map { BreweryItem(it.brewery) })
+                itemAdapter.add(state)
             }
         })
         fastAdapter.onClickListener = { _, _, item, _ ->
@@ -71,12 +70,20 @@ class BreweryFragment : Fragment() {
     }
 
     private fun findLocation() {
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(activity as MainActivity)
-        fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
-            location?.let {
-                binding.title.text = "${it.longitude} longitude, ${it.latitude} latitude"
+        pubViewModel =
+            ViewModelProvider(this, PubViewModelFactory(activity as MainActivity)).get(
+                PubViewModel::class.java
+            )
+        pubViewModel.viewState.observe(this, Observer { state ->
+            val itemAdapter = ItemAdapter<PubItemView>()
+            val fastAdapter = FastAdapter.with(itemAdapter)
+            binding.listRecycler.apply {
+                layoutManager = LinearLayoutManager(context)
+                setHasFixedSize(true)
+                adapter = fastAdapter
+                itemAdapter.add(state)
             }
-        }
+        })
     }
 
     private fun navigateToDetails(item: Int): Boolean {
@@ -88,6 +95,5 @@ class BreweryFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        binding.listRecycler.visibility = View.VISIBLE
     }
 }

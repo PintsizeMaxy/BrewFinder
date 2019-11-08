@@ -15,10 +15,10 @@ data class Beer (
     @SerializedName("beer_abv")
     val beerAbv: Double,
     @SerializedName("beer_ibu")
-    val beerIbu: Int,
+    val beerIbu: Int = 0,
     @SerializedName("beer_description")
-    val description: String,
+    val description: String = "",
     @SerializedName("rating_score")
-    val ratingScore: Double
+    val ratingScore: Float = 0F
 
 )
