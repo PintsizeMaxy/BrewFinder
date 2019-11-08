@@ -10,7 +10,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginHorizontal="10dp">
 
@@ -21,7 +21,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/beer_label"
                     android:layout_width="100dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="120dp"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -47,8 +47,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:textSize="18sp"
+                    android:layout_marginEnd="8dp"
                     app:layout_constraintBottom_toTopOf="@id/beer_rating"
                     app:layout_constraintStart_toEndOf="@id/beer_label"
+                    app:layout_constraintEnd_toEndOf="parent"
                     tools:text="Milk Stout"
                     />
 

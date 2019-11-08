@@ -1,6 +1,7 @@
 package com.example.brewfinder.pub
 
 import android.view.View
+import androidx.core.view.isVisible
 import coil.api.clear
 import coil.api.load
 import com.example.brewfinder.R
@@ -27,6 +28,7 @@ class PubItemView(model: PubItemsData) : GenericPubItem(model) {
             beer_name.text = model.beer.beerName
             brewery_name.text = model.brewery.breweryName
             beer_rating.rating = model.ratingScore
+            comment.isVisible = model.checkinComment.isNotEmpty()
             comment.text = model.checkinComment
 
         }

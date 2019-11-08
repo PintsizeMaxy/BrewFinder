@@ -13,7 +13,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/user_image"
@@ -58,17 +59,18 @@
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/user_image"
-                android:layout_marginTop="12dp"
+                app:layout_constraintTop_toTopOf="@id/beer_name"
                 />
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/beer_name"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@id/beer_image"
                 app:layout_constraintTop_toBottomOf="@id/user_image"
+                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginStart="6dp"
                 android:layout_marginTop="12dp"
+                android:layout_marginEnd="6dp"
                 tools:text="Restless Nights"/>
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -99,9 +101,10 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/beer_image"
+                app:layout_constraintTop_toBottomOf="@id/beer_rating"
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
+                android:layout_marginTop="20dp"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
