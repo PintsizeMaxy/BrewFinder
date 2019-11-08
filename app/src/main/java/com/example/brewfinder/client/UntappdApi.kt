@@ -1,9 +1,7 @@
 package com.example.brewfinder.client
 
-import com.example.brewfinder.data.UntappdBeerData
 import com.example.brewfinder.data.UntappdBreweryData
-import com.example.brewfinder.data.UntappdBrewerySearchData
-import com.example.brewfinder.data.UntappdPubData
+import com.example.brewfinder.data.UntappdResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -23,7 +21,7 @@ interface UntappdApi {
         @Query("q") q: String,
         @Query("client_id") client_id: String,
         @Query("client_secret") client_secret: String
-    ): UntappdBrewerySearchData
+    ): UntappdResponse
 
     @GET("beer/info/{BID}")
     suspend fun getBeer(
@@ -31,7 +29,7 @@ interface UntappdApi {
         @Query("client_id") client_id: String,
         @Query("client_secret") client_secret: String,
         @Query("compact") compact: Boolean = true
-    ): UntappdBeerData
+    ): UntappdResponse
 
     @GET("thepub/local")
     suspend fun thePub(
@@ -41,7 +39,7 @@ interface UntappdApi {
         @Query("lng") lng: Float,
         @Query("radius") radius: Int = 15,
         @Query("dist_pref") dist_pref: String = "m"
-    ) : UntappdPubData
+    ) : UntappdResponse
 
     companion object {
         val retrofit = Retrofit.Builder().baseUrl("https://api.untappd.com/v4/")
