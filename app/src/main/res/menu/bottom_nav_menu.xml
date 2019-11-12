@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/breweryFragment"
+        android:title="@string/menu_brewery"
+        android:icon="@drawable/brewery" />
+
+<!--    <item-->
+<!--        android:id="@+id/breweryDetailFragment"-->
+<!--        android:title="@string/menu_brewery_details"-->
+<!--        android:icon="@drawable/ic_beer"-->
+<!--        />-->
+</menu>

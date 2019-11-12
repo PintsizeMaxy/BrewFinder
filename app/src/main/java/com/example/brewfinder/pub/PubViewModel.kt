@@ -42,11 +42,8 @@ class PubViewModel(private val activity: MainActivity) : ViewModel() {
                                 it.longitude.toFloat()
                             )
                         }
-                        val response = apiResult.await()
                         viewState.postValue(apiResult.await().response.checkins.items.map {
-                            PubItemView(
-                                it
-                            )
+                            PubItemView(it)
                         })
                     } catch (t: Throwable) {
                         Timber.e(t)
