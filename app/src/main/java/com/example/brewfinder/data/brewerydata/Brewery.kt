@@ -1,6 +1,6 @@
 package com.example.brewfinder.data.brewerydata
 
-import com.example.brewfinder.data.beerdata.BeerItems
+import com.example.brewfinder.data.beerdata.BeerBreweryItems
 import com.google.gson.annotations.SerializedName
 
 data class Brewery (
@@ -19,5 +19,5 @@ data class Brewery (
     @SerializedName("location")
     val location: BreweryLocation,
     @SerializedName("beer_list")
-    val beerList: BeerItems = BeerItems(emptyList())
+    val beerList: BeerBreweryItems = BeerBreweryItems(emptyList())
     )

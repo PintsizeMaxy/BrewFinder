@@ -92,8 +92,4 @@ class BreweryFragment : Fragment() {
         findNavController().navigate(action)
         return false
     }
-
-    override fun onResume() {
-        super.onResume()
-    }
 }

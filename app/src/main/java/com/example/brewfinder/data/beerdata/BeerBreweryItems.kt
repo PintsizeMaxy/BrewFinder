@@ -2,8 +2,8 @@ package com.example.brewfinder.data.beerdata
 
 import com.google.gson.annotations.SerializedName
 
-data class BeerItems (
+data class BeerBreweryItems (
 
     @SerializedName("items")
-    val items: List<BeerData>
+    val items: List<BeerBreweryData>
 )

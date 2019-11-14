@@ -10,20 +10,20 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import coil.api.load
 import com.example.brewfinder.R
-import com.example.brewfinder.databinding.BeerDetailFragmentBinding
+import com.example.brewfinder.databinding.FragmentBeerDetailsBinding
 
 class BeerFragment : Fragment() {
 
     private val args: BeerFragmentArgs by navArgs()
     private lateinit var viewModel: BeerViewModel
-    private lateinit var binding: BeerDetailFragmentBinding
+    private lateinit var binding: FragmentBeerDetailsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = BeerDetailFragmentBinding.inflate(inflater, container, false)
+        binding = FragmentBeerDetailsBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(
             this,
             BeerViewModelFactory(args.breweryId)

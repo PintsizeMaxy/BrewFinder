@@ -3,7 +3,6 @@ package com.example.brewfinder.breweries
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.brewfinder.BuildConfig
 import com.example.brewfinder.client.UntappdApi
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
@@ -21,11 +20,7 @@ class BreweryViewModel : ViewModel() {
         job = viewModelScope.launch {
             try {
                 val apiResult = viewModelScope.async {
-                    UntappdApi.retrofit.searchBrewery(
-                        search,
-                        BuildConfig.API_ID,
-                        BuildConfig.API_SECRET
-                    )
+                    UntappdApi.retrofit.searchBrewery(search)
                 }
                 viewState.postValue(apiResult.await().response.brewery.items.map { BreweryItem(it.brewery) })
             }catch (t: Throwable){

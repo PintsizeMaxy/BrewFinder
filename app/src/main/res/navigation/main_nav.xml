@@ -12,13 +12,13 @@
         <action
             android:id="@+id/action_breweryFragment_to_breweryDetailFragment2"
             app:destination="@id/breweryDetailFragment"
-            app:popUpTo="@+id/breweryFragment" />
+            app:popUpTo="@id/breweryFragment" />
     </fragment>
     <fragment
         android:id="@+id/breweryDetailFragment"
         android:name="com.example.brewfinder.brewerydetail.BreweryDetailFragment"
         android:label="BreweryDetailFragment"
-        tools:layout="@layout/brewery_details_fragment">
+        tools:layout="@layout/fragment_brewery_details">
         <argument
             android:name="brewery_details"
             app:argType="integer" />
@@ -31,12 +31,14 @@
         android:id="@+id/beerFragment"
         android:name="com.example.brewfinder.beer.BeerFragment"
         android:label="BeerFragment"
-        tools:layout="@layout/beer_detail_fragment">
+        tools:layout="@layout/fragment_beer_details">
         <argument
             android:name="brewery_id"
             app:argType="integer" />
     </fragment>
     <action
         android:id="@+id/return_home"
-        app:destination="@id/breweryFragment" />
+        app:destination="@id/breweryFragment"
+        app:popUpTo="@+id/breweryFragment"
+        app:popUpToInclusive="true" />
 </navigation>

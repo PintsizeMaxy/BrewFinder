@@ -13,7 +13,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import coil.api.load
 import com.example.brewfinder.R
-import com.example.brewfinder.databinding.BreweryDetailsFragmentBinding
+import com.example.brewfinder.databinding.FragmentBreweryDetailsBinding
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
 
@@ -21,14 +21,14 @@ class BreweryDetailFragment : Fragment() {
 
     private val args: BreweryDetailFragmentArgs by navArgs()
     private lateinit var viewModel: BreweryDetailViewModel
-    private lateinit var binding: BreweryDetailsFragmentBinding
+    private lateinit var binding: FragmentBreweryDetailsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = BreweryDetailsFragmentBinding.inflate(inflater, container, false)
+        binding = FragmentBreweryDetailsBinding.inflate(inflater, container, false)
         viewModel =
             ViewModelProvider(this, BreweryDetailViewModelFactory(args.breweryDetails)).get(
                 BreweryDetailViewModel::class.java

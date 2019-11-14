@@ -4,11 +4,8 @@ import android.location.Location
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.brewfinder.BuildConfig
 import com.example.brewfinder.MainActivity
 import com.example.brewfinder.client.UntappdApi
-import com.example.brewfinder.data.pubdata.PubCheckinData
-import com.example.brewfinder.data.pubdata.PubItemsData
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import kotlinx.coroutines.Job
@@ -36,10 +33,8 @@ class PubViewModel(private val activity: MainActivity) : ViewModel() {
                     try {
                         val apiResult = viewModelScope.async {
                             UntappdApi.retrofit.thePub(
-                                BuildConfig.API_ID,
-                                BuildConfig.API_SECRET,
-                                it.latitude.toFloat(),
-                                it.longitude.toFloat()
+                                lat = it.latitude.toFloat(),
+                                lng = it.longitude.toFloat()
                             )
                         }
                         viewState.postValue(apiResult.await().response.checkins.items.map {
