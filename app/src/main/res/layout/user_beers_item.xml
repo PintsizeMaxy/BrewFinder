@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="12dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/beer_label"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="8dp"
+                android:src="@drawable/ic_photo" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/beer_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/beer_label"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="4dp"
+                tools:text="We Got 5 On It" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/brewery_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/beer_name"
+                android:layout_toEndOf="@id/beer_label"
+                android:layout_marginStart="12dp"
+                tools:text="Brother Bens Brew"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/beer_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/beer_label"
+                android:layout_below="@id/brewery_name"
+                android:layout_marginStart="12dp"
+                tools:text="Brown Ale - Other"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/beer_label"
+                android:layout_marginStart="8dp"
+                tools:text="This beer is very tasty, definite herbal taste to this beer "/>
+
+            <androidx.appcompat.widget.AppCompatRatingBar
+                android:id="@+id/rating_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/comment"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                style="?android:attr/ratingBarStyleSmall"
+                />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
