@@ -9,7 +9,9 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp">
+        android:elevation="8dp"
+        app:cardElevation="8dp"
+        android:layout_margin="12dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -51,7 +53,7 @@
                 app:layout_constraintStart_toEndOf="@id/location_image"
                 app:layout_constraintTop_toBottomOf="@id/username"
                 android:layout_marginStart="6dp"
-                tools:text="Original Gravity Public House"
+                tools:text="Mikerphone Brewing Company"
                 />
 
             <androidx.appcompat.widget.AppCompatImageView

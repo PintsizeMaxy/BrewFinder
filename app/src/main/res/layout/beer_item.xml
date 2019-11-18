@@ -51,6 +51,7 @@
                     app:layout_constraintBottom_toTopOf="@id/beer_rating"
                     app:layout_constraintStart_toEndOf="@id/beer_label"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/beer_name"
                     tools:text="Milk Stout"
                     />
 

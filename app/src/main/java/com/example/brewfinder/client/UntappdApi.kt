@@ -47,7 +47,7 @@ interface UntappdApi {
         @Path("USERNAME") USERNAME: String,
         @Query("client_id") client_id: String = BuildConfig.API_ID,
         @Query("client_secret") client_secret: String = BuildConfig.API_SECRET
-    )
+    ) : UntappdResponse
 
     companion object {
         val retrofit = Retrofit.Builder().baseUrl("https://api.untappd.com/v4/")

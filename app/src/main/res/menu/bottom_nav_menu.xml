@@ -6,9 +6,9 @@
         android:title="@string/menu_brewery"
         android:icon="@drawable/brewery" />
 
-<!--    <item-->
-<!--        android:id="@+id/breweryDetailFragment"-->
-<!--        android:title="@string/menu_brewery_details"-->
-<!--        android:icon="@drawable/ic_beer"-->
-<!--        />-->
+    <item
+        android:id="@+id/breweryDetailFragment"
+        android:title="@string/menu_user_beers"
+        android:icon="@drawable/user_beers"
+        />
 </menu>

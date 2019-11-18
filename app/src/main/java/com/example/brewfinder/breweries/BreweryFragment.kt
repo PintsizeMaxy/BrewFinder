@@ -70,6 +70,7 @@ class BreweryFragment : Fragment() {
     }
 
     private fun findLocation() {
+        binding.progressCircular.visibility = View.VISIBLE
         pubViewModel =
             ViewModelProvider(this, PubViewModelFactory(activity as MainActivity)).get(
                 PubViewModel::class.java
@@ -83,6 +84,7 @@ class BreweryFragment : Fragment() {
                 adapter = fastAdapter
                 itemAdapter.add(state)
             }
+            binding.progressCircular.visibility = View.GONE
         })
     }
 
