@@ -56,6 +56,8 @@ dependencies {
     implementation "com.google.android.gms:play-services-location:17.0.0"
     implementation 'com.jakewharton.timber:timber:4.7.1'
     implementation "com.mikepenz:fastadapter:4.1.0"
+    implementation "com.mikepenz:fastadapter-extensions-scroll:4.1.0"
+    implementation "com.mikepenz:fastadapter-extensions-ui:4.1.0"
     implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2'
     testImplementation 'junit:junit:4.12'

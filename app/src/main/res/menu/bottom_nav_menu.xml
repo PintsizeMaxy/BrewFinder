@@ -7,7 +7,7 @@
         android:icon="@drawable/brewery" />
 
     <item
-        android:id="@+id/breweryDetailFragment"
+        android:id="@+id/to_user"
         android:title="@string/menu_user_beers"
         android:icon="@drawable/user_beers"
         />

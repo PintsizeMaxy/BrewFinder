@@ -10,17 +10,12 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class UserBeersViewModel(private val user: String) : ViewModel() {
+class UserBeersViewModel : ViewModel() {
 
     val viewState = MutableLiveData<List<UserBeersItem>>()
     var job: Job? = null
 
-    init {
-        findUserBeers()
-    }
-
-
-    private fun findUserBeers() {
+    fun findUserBeers(user: String) {
         job?.cancel()
 
         job = viewModelScope.launch {

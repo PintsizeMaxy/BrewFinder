@@ -46,7 +46,10 @@ interface UntappdApi {
     suspend fun userBeers(
         @Path("USERNAME") USERNAME: String,
         @Query("client_id") client_id: String = BuildConfig.API_ID,
-        @Query("client_secret") client_secret: String = BuildConfig.API_SECRET
+        @Query("client_secret") client_secret: String = BuildConfig.API_SECRET,
+        @Query("offset") offset: Int = 0,
+        @Query("limit") limit: Int = 25,
+        @Query("sort") sort: String = "date"
     ) : UntappdResponse
 
     companion object {

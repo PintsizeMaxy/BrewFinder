@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName
 
 data class BeerBreweryData (
 
+    @SerializedName("rating_score")
+    val ratingScore: Float = 0F,
     @SerializedName("beer")
     val beer: Beer,
     @SerializedName("brewery")

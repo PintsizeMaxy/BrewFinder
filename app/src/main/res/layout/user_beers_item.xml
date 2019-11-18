@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_margin="12dp">
+        android:layout_height="wrap_content"
+        app:cardElevation="8dp"
+        android:layout_margin="8dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -48,21 +50,22 @@
                 tools:text="Brown Ale - Other"
                 />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/comment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/beer_label"
-                android:layout_marginStart="8dp"
-                tools:text="This beer is very tasty, definite herbal taste to this beer "/>
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:id="@+id/comment"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/beer_label"-->
+<!--                android:layout_marginStart="8dp"-->
+<!--                tools:text="This beer is very tasty, definite herbal taste to this beer "/>-->
 
             <androidx.appcompat.widget.AppCompatRatingBar
                 android:id="@+id/rating_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/comment"
+                android:layout_below="@id/beer_label"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp"
                 style="?android:attr/ratingBarStyleSmall"
                 />
 

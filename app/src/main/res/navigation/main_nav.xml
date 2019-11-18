@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/breweryFragment"
         android:name="com.example.brewfinder.breweries.BreweryFragment"
-        android:label="BreweryFragment"
+        android:label="BrewFinder"
         tools:layout="@layout/brewery_recycler">
         <action
             android:id="@+id/action_breweryFragment_to_breweryDetailFragment2"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/breweryDetailFragment"
         android:name="com.example.brewfinder.brewerydetail.BreweryDetailFragment"
-        android:label="BreweryDetailFragment"
+        android:label="Brewery"
         tools:layout="@layout/fragment_brewery_details">
         <argument
             android:name="brewery_details"
@@ -30,7 +30,7 @@
     <fragment
         android:id="@+id/beerFragment"
         android:name="com.example.brewfinder.beer.BeerFragment"
-        android:label="BeerFragment"
+        android:label="Beer"
         tools:layout="@layout/fragment_beer_details">
         <argument
             android:name="brewery_id"
@@ -39,6 +39,15 @@
     <action
         android:id="@+id/return_home"
         app:destination="@id/breweryFragment"
+        app:popUpTo="@+id/breweryFragment"
+        app:popUpToInclusive="true" />
+    <fragment
+        android:id="@+id/userBeersFragment"
+        android:name="com.example.brewfinder.userbeers.UserBeersFragment"
+        android:label="UserBeersFragment" />
+    <action
+        android:id="@+id/to_user"
+        app:destination="@id/userBeersFragment"
         app:popUpTo="@+id/breweryFragment"
         app:popUpToInclusive="true" />
 </navigation>
