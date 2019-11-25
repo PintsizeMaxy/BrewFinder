@@ -1,4 +1,4 @@
-package com.example.brewfinder.breweries
+package com.example.brewfinder.brewerysearch
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,9 +9,9 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class BreweryViewModel : ViewModel() {
+class BrewerySearchViewModel : ViewModel() {
 
-    val viewState = MutableLiveData<List<BreweryItem>>()
+    val viewState = MutableLiveData<List<BrewerySearchItem>>()
     var job: Job? = null
 
     fun searchBreweries(search: String) {
@@ -22,7 +22,7 @@ class BreweryViewModel : ViewModel() {
                 val apiResult = viewModelScope.async {
                     UntappdApi.retrofit.searchBrewery(search)
                 }
-                viewState.postValue(apiResult.await().response.brewery.items.map { BreweryItem(it.brewery) })
+                viewState.postValue(apiResult.await().response.brewery.items.map { BrewerySearchItem(it.brewery) })
             }catch (t: Throwable){
                 Timber.e(t)
             }

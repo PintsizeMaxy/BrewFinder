@@ -89,7 +89,7 @@ class BreweryDetailFragment : Fragment() {
     }
 
     private fun navigateToBeerDetail(bid: Int) : Boolean {
-        val actions = BreweryDetailFragmentDirections.toBeer(bid)
+        val actions = BreweryDetailFragmentDirections.breweryToBeer(bid)
         findNavController().navigate(actions)
         return false
     }

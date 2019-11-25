@@ -1,4 +1,4 @@
-package com.example.brewfinder.breweries
+package com.example.brewfinder.brewerysearch
 
 import android.view.View
 import coil.api.clear
@@ -8,7 +8,7 @@ import com.example.brewfinder.data.brewerydata.Brewery
 import kotlinx.android.synthetic.main.brewery_item.view.*
 
 
-class BreweryItem(private val breweries: Brewery) : BreweriesGenericItem(breweries)
+class BrewerySearchItem(private val breweries: Brewery) : BrewerySearchGenericItem(breweries)
 {
     override val layoutRes = R.layout.brewery_item
     override val type = R.id.brewery_item

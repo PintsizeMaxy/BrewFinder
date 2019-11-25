@@ -3,7 +3,8 @@
     <string name="search_title">Search</string>
     <string name="menu_dashboard">Dashboard</string>
     <string name="menu_store">Store</string>
-    <string name="menu_brewery">Local Check-ins</string>
+    <string name="menu_local">Local Check-ins</string>
     <string name="menu_user_beers">User Search</string>
     <string name="search_user">Search User Beers...</string>
+    <string name="menu_breweries">Brewery Search</string>
 </resources>

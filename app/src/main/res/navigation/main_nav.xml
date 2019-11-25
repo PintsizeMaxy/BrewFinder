@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/breweryFragment">
+    app:startDestination="@id/brewerySearchList">
     <fragment
-        android:id="@+id/breweryFragment"
-        android:name="com.example.brewfinder.breweries.BreweryFragment"
+        android:id="@+id/brewerySearchList"
+        android:name="com.example.brewfinder.brewerysearch.BrewerySearchFragment"
         android:label="BrewFinder"
-        tools:layout="@layout/brewery_recycler">
+        tools:layout="@layout/recycler_generic">
         <action
             android:id="@+id/action_breweryFragment_to_breweryDetailFragment2"
             app:destination="@id/breweryDetailFragment"
-            app:popUpTo="@id/breweryFragment" />
+            app:popUpTo="@id/brewerySearchList" />
     </fragment>
     <fragment
         android:id="@+id/breweryDetailFragment"
@@ -23,9 +23,10 @@
             android:name="brewery_details"
             app:argType="integer" />
         <action
-            android:id="@+id/to_beer"
+            android:id="@+id/brewery_to_beer"
             app:destination="@id/beerFragment"
-            app:popUpTo="@+id/breweryDetailFragment" />
+            app:popUpTo="@+id/breweryDetailFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/beerFragment"
@@ -36,18 +37,12 @@
             android:name="brewery_id"
             app:argType="integer" />
     </fragment>
-    <action
-        android:id="@+id/return_home"
-        app:destination="@id/breweryFragment"
-        app:popUpTo="@+id/breweryFragment"
-        app:popUpToInclusive="true" />
     <fragment
         android:id="@+id/userBeersFragment"
         android:name="com.example.brewfinder.userbeers.UserBeersFragment"
         android:label="UserBeersFragment" />
-    <action
-        android:id="@+id/to_user"
-        app:destination="@id/userBeersFragment"
-        app:popUpTo="@+id/breweryFragment"
-        app:popUpToInclusive="true" />
+    <fragment
+        android:id="@+id/pubFragment"
+        android:name="com.example.brewfinder.pub.PubFragment"
+        android:label="PubFragment" />
 </navigation>

@@ -2,12 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/return_home"
-        android:title="@string/menu_brewery"
-        android:icon="@drawable/brewery" />
-
+        android:id="@+id/brewerySearchList"
+        android:title="@string/menu_breweries"
+        android:icon="@drawable/brewery"
+        />
     <item
-        android:id="@+id/to_user"
+        android:id="@+id/pubFragment"
+        android:title="@string/menu_local"
+        android:icon="@drawable/pin" />
+    <item
+        android:id="@+id/userBeersFragment"
         android:title="@string/menu_user_beers"
         android:icon="@drawable/user_beers"
         />
