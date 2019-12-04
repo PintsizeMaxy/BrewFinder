@@ -13,6 +13,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import coil.api.load
 import com.example.brewfinder.R
+import com.example.brewfinder.beer.BeerItemView
 import com.example.brewfinder.databinding.FragmentBreweryDetailsBinding
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
@@ -28,11 +29,11 @@ class BreweryDetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentBreweryDetailsBinding.inflate(inflater, container, false)
         viewModel =
             ViewModelProvider(this, BreweryDetailViewModelFactory(args.breweryDetails)).get(
                 BreweryDetailViewModel::class.java
             )
+        binding = FragmentBreweryDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -57,14 +58,18 @@ class BreweryDetailFragment : Fragment() {
                         it.location.breweryState
                     )
 
-                    descriptionBrewery.isVisible = it.breweryDescription.isNotEmpty().also {_ ->
+                    descriptionBrewery.isVisible = it.breweryDescription.isNotEmpty().also { _ ->
                         description.text = it.breweryDescription
                     }
                     binding.beerRecycler.apply {
                         layoutManager = LinearLayoutManager(context)
                         setHasFixedSize(true)
                         adapter = fastAdapter
-                        itemAdapter.add(it.beerList.items.map { BeerItemView(it.beer) })
+                        itemAdapter.add(it.beerList.items.map {
+                            BeerItemView(
+                                it.beer
+                            )
+                        })
                     }
                     fastAdapter.onClickListener = { _, _, item, _ ->
                         navigateToBeerDetail(item.model.bid)
@@ -77,18 +82,27 @@ class BreweryDetailFragment : Fragment() {
             if (params.height == ViewGroup.LayoutParams.WRAP_CONTENT) {
                 params.height = 85
                 binding.description.isSingleLine = true
-                binding.descriptionExpand.setImageDrawable(resources.getDrawable(android.R.drawable.arrow_down_float, null))
-            }
-            else {
+                binding.descriptionExpand.setImageDrawable(
+                    resources.getDrawable(
+                        android.R.drawable.arrow_down_float,
+                        null
+                    )
+                )
+            } else {
                 params.height = ViewGroup.LayoutParams.WRAP_CONTENT
                 binding.description.isSingleLine = false
-                binding.descriptionExpand.setImageDrawable(resources.getDrawable(android.R.drawable.arrow_up_float, null))
+                binding.descriptionExpand.setImageDrawable(
+                    resources.getDrawable(
+                        android.R.drawable.arrow_up_float,
+                        null
+                    )
+                )
             }
             it.layoutParams = params
         }
     }
 
-    private fun navigateToBeerDetail(bid: Int) : Boolean {
+    private fun navigateToBeerDetail(bid: Int): Boolean {
         val actions = BreweryDetailFragmentDirections.breweryToBeer(bid)
         findNavController().navigate(actions)
         return false

@@ -31,7 +31,7 @@
         app:menu="@menu/bottom_nav_menu"
         app:itemIconTint="@color/bnv_item"
         app:itemTextColor="@color/bnv_item"
-        android:background="@color/colorPrimary"
+        android:background="@color/forestgreen"
         />
 
 </RelativeLayout>

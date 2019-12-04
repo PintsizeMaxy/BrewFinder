@@ -4,4 +4,5 @@
     <item name="beer_item" type="id" />
     <item name="pub_item" type="id" />
     <item name="user_details" type="id" />
+    <item name="beer_checkins" type="id" />
 </resources>

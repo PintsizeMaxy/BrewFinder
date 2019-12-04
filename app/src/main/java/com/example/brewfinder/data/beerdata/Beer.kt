@@ -1,5 +1,6 @@
 package com.example.brewfinder.data.beerdata
 
+import com.example.brewfinder.data.pubdata.PubCheckinData
 import com.google.gson.annotations.SerializedName
 
 data class Beer (
@@ -19,6 +20,8 @@ data class Beer (
     @SerializedName("beer_description")
     val description: String = "",
     @SerializedName("rating_score")
-    val ratingScore: Float = 0F
+    val ratingScore: Float = 0F,
+    @SerializedName("checkins")
+    val checkins: PubCheckinData
 
 )

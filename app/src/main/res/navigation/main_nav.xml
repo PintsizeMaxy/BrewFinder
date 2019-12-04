@@ -25,8 +25,7 @@
         <action
             android:id="@+id/brewery_to_beer"
             app:destination="@id/beerFragment"
-            app:popUpTo="@+id/breweryDetailFragment"
-            app:popUpToInclusive="true" />
+            app:popUpTo="@+id/breweryDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/beerFragment"
@@ -40,9 +39,11 @@
     <fragment
         android:id="@+id/userBeersFragment"
         android:name="com.example.brewfinder.userbeers.UserBeersFragment"
-        android:label="UserBeersFragment" />
+        android:label="UserBeersFragment"
+        tools:layout="@layout/user_beers_item"/>
     <fragment
         android:id="@+id/pubFragment"
         android:name="com.example.brewfinder.pub.PubFragment"
-        android:label="PubFragment" />
+        android:label="PubFragment"
+        tools:layout="@layout/pub_item"/>
 </navigation>

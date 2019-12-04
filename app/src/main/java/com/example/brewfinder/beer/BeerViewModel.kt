@@ -5,6 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.brewfinder.client.UntappdApi
 import com.example.brewfinder.data.beerdata.Beer
+import com.example.brewfinder.data.brewerydata.BreweryData
+import com.example.brewfinder.data.pubdata.PubCheckinData
+import com.example.brewfinder.data.pubdata.PubItemsData
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
@@ -25,6 +28,7 @@ class BeerViewModel(bid: Int) : ViewModel() {
                 val apiResult = viewModelScope.async {
                     UntappdApi.retrofit.getBeer(id)
                 }
+                val r = apiResult.await().response
                 viewScope.postValue(apiResult.await().response.beer)
             } catch (t: Throwable) {
                 Timber.e(t)

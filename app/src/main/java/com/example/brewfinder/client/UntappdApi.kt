@@ -29,7 +29,7 @@ interface UntappdApi {
         @Path("BID") BID: Int,
         @Query("client_id") client_id: String = BuildConfig.API_ID,
         @Query("client_secret") client_secret: String = BuildConfig.API_SECRET,
-        @Query("compact") compact: Boolean = true
+        @Query("compact") compact: Boolean = false
     ): UntappdResponse
 
     @GET("thepub/local")

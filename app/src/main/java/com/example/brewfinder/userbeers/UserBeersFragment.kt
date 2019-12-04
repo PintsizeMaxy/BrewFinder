@@ -31,12 +31,17 @@ class UserBeersFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val fastAdapter = FastAdapter.with(itemAdapter)
+        user_beers.apply {
+            layoutManager = LinearLayoutManager(context)
+            setHasFixedSize(true)
+            adapter = fastAdapter
+        }
         viewModel.viewState.observe(this, Observer { state ->
-            user_beers.apply {
-                layoutManager = LinearLayoutManager(context)
-                setHasFixedSize(true)
-                adapter = fastAdapter
-                itemAdapter.add(state)
+            if (state.isEmpty()) {
+                no_results.visibility = View.VISIBLE
+            } else {
+                itemAdapter.setNewList(state)
+                no_results.visibility = View.GONE
             }
             progress.visibility = View.GONE
         })
@@ -54,6 +59,7 @@ class UserBeersFragment : Fragment() {
                 itemAdapter.clear()
                 return true
             }
+
             override fun onQueryTextChange(newText: String?) = false
         })
     }

@@ -6,6 +6,8 @@ import com.example.brewfinder.data.pubdata.PubCheckinData
 import com.google.gson.annotations.SerializedName
 
 data class BreweryData(
+    @SerializedName("total_count")
+    val totalCount: Int,
     @SerializedName("brewery")
     val brewery: BeerBreweryItems,
     @SerializedName("checkins")
